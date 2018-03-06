@@ -1,6 +1,6 @@
-package pl.gwsoft;
+package pl.gwsoft.day1;
 
-public class Main {
+public class HelloJava {
 
     public static void main(String[] args) {
         System.out.println("test");
