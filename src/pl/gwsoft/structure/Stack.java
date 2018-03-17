@@ -1,43 +1,39 @@
 package pl.gwsoft.structure;
 
-import java.util.Arrays;
-
 /**
  * Kolejka LIFO (Last In First Out) - Stos
  */
-public class Stack {
+public class Stack<T> {
     private final static int SIZE = 5;
-    private Integer[] stack;
+    private Object[] stack;
     private int index;
 
     public Stack() {
-        stack = new Integer[SIZE];
+        stack = new Object[SIZE];
         index=-1;
     }
 
-    public void push(Integer i) {
-        index++;
-        if(index >= stack.length) {
+    public void push(T i) {
+        if(index >= stack.length-1) {
             extendStack();
         }
-        stack[index] = i;
+        stack[++index] = i;
     }
 
     private void extendStack() {
-        Integer[] newStack = new Integer[stack.length + SIZE];
+        Object[] newStack = new Object[stack.length + SIZE];
         for (int i = 0; i < stack.length; i++) {
             newStack[i]=stack[i];
         }
         stack = newStack;
     }
 
-    public Integer pop() {
-        Integer tmp = stack[index];
-        index--;
-        return tmp;
+    public T pop() {
+        return (T) stack[index--];
     }
-    public Integer peek() {
-        return stack[index];
+
+    public T peek() {
+        return (T) stack[index];
     }
 
     public int size() {
@@ -46,7 +42,9 @@ public class Stack {
 
     public void print(){
         for (int i =index; i>= 0; i--) {
-            System.out.println(stack[i]);
+//            System.out.println("-----");
+            System.out.println("| " + stack[i]+" |");
         }
+//        System.out.println("-----");
     }
 }
