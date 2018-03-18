@@ -7,7 +7,7 @@ public class ListTest {
         Node jan = new Node("Jan");
         Node adam = new Node("Adam");
         Node aleksander = new Node("Aleksander");
-        adam.addNext(aleksander);
+
         lista.add(jan);
         lista.add(adam);
         lista.add(aleksander);
