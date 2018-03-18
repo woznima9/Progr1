@@ -16,4 +16,24 @@ public class Node {
         }
     }
 
+    @Override
+    public String toString() {
+        if (next != null) {
+            return text + ", " + String.valueOf(next);
+        } else {
+            return text;
+        }
+    }
+
+    public Node getNext() {
+        return next;
+    }
+
+    public void removeRef() {
+        next = null;
+    }
+
+    public void setNext(Node next) {
+        this.next = next;
+    }
 }
