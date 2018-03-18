@@ -17,11 +17,13 @@ public class Exercises2 {
         cars.add(new Car("Ford Mustang", "Zielony", 250));
         cars.add(new Car("Skoda Superb", "Biały", 240));
 
-        Map<Car, String> map = cars.stream().filter(car -> car.getColour().equals("Czarny"))
+        Map<Car, String> map = cars.stream()
+                .filter(car -> car.getColour().equals("Czarny"))
                 .sorted(Comparator.comparing(Car::getColour))
-                .filter(car -> car.getBrandAndmodel().contains("a"))
+                .filter(car -> containsCharacterA(car))
                 .collect(Collectors.toMap(k -> k, v -> v.getColour()));
         System.out.println(map);
+
         //1. Odfiltrowac Kolor czarny
         //2. Posortowac alfabetycznie po kolorach
         //3. Odfiltrowac te ktore mają w nazwie m
@@ -29,7 +31,8 @@ public class Exercises2 {
 
         //Zad2
         Calendar cal = Calendar.getInstance();
-        cal.set(Calendar.MONTH, Calendar.JANUARY);
+        cal.set(Calendar.YEAR, 2010);
+        cal.set(Calendar.MONTH, Calendar.FEBRUARY);
         System.out.println(cal.getMaximum(Calendar.DAY_OF_MONTH));
 
         List<String> months =
@@ -40,7 +43,7 @@ public class Exercises2 {
                 .map(e -> new Month(e))
                 .sorted(Comparator.comparing(Month::getName))
                 .filter(e -> e.getName().contains("r"))
-                .collect(Collectors.toList())
+                //.collect(Collectors.toList())
                 .forEach(System.out::println);
 
                 //Zrobić kolekcję miesiecy jako stringi
@@ -48,5 +51,9 @@ public class Exercises2 {
                 // posortowac wzgledem ilosci dni
                 //odfiltrowac tylko te z litera r
 
+    }
+
+    private static boolean containsCharacterA(Car car) {
+        return car.getBrandAndmodel().contains("a") || car.getBrandAndmodel().contains("A");
     }
 }
