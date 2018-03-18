@@ -18,7 +18,6 @@ public class StackTest {
 
         stack.print();
 
-
         Stack<String> stackText = new Stack<String>();
         stackText.push("Ala");
         stackText.push("ma");
@@ -28,5 +27,14 @@ public class StackTest {
         System.out.println("Zdejmuje: " + stackText.pop());
 
         stackText.print();
+
+        //To samo tylko z biblioteka z javy java.util.Stack
+        java.util.Stack<String> s = new java.util.Stack<>();
+        s.push("aaa");
+        s.push("bb");
+        s.push("c");
+        System.out.println(s);
+        System.out.println("Zdejmuje: " + s.pop());
+        System.out.println(s);
     }
 }
