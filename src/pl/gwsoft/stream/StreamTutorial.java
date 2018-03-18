@@ -88,7 +88,7 @@ public class StreamTutorial {
 
         System.out.println(result1);
         Map<Integer, String> result2 = persons.stream().collect(
-                Collectors.toMap(k -> k.getAge(), v -> v.getName()));
+                Collectors.toMap(key -> key.getAge(), value -> value.getName()));
 
         System.out.println(result2);
 
