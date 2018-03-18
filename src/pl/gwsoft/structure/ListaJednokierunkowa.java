@@ -1,9 +1,18 @@
 package pl.gwsoft.structure;
 
 public class ListaJednokierunkowa {
-    private Element first;
+    private Node first;
 
-    public void add(Element e) {
-        first = e;
+    public void add(Node e) {
+        if(first == null) {
+            first = e;
+        }else {
+            first.addNext(e);
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "lista: ...";
     }
 }
