@@ -5,14 +5,10 @@ import java.util.LinkedList;
 public class ListTest {
 
     public static void main(String[] args) {
-        ListaJednokierunkowa lista = new ListaJednokierunkowa();
-        Node jan = new Node("Jan");
-        Node adam = new Node("Adam");
-        Node aleksander = new Node("Aleksander");
-
-        lista.add(jan);
-        lista.add(adam);
-        lista.add(aleksander);
+        ListaJednokierunkowa<Integer> lista = new ListaJednokierunkowa<Integer>();
+        lista.add(1);
+        lista.add(3);
+        lista.add(8);
 
         System.out.println(lista);
         //spodziewam sie:
@@ -21,7 +17,12 @@ public class ListTest {
         lista.remove(1);
         System.out.println(lista);
         //spodziewam sie:
-        //Jan, Adam, Aleksander
+        //Adam, Aleksander
+
+        String name = lista.get(1);
+        System.out.println(name);
+        //spodziewam sie:
+        //Aleksander
 
         System.out.println("--------------");
         //przykład z implementacją listy która jest

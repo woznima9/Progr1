@@ -1,17 +1,19 @@
 package pl.gwsoft.structure;
 
-public class ListaJednokierunkowa {
-    private Node first;
+public class ListaJednokierunkowa<T> {
+    private Node<T> first;
+    private int size;
     //TODO dodać zmienna size
     //zaimplementowac metode size() ktora zwraca wielkosci listy
     //zaimplementowac metody removeFirst() i removeLast()
     //zaimplementować metode get(index) która zwróci element o danym indexie
     //z listy
-    public void add(Node e) {
+    public void add(String e) {
+        size++;
         if(first == null) {
-            first = e;
+            first = new Node(e);
         }else {
-            first.addNext(e);
+            first.addNext(new Node(e));
         }
     }
 
@@ -21,6 +23,7 @@ public class ListaJednokierunkowa {
     }
 
     public void remove(int index) {
+        size--;
         //TODO sprawdzenie zakresu (czy index jest prawidlowa wartoscia
         //i nie przekracza wielkosci listy
         //TODO spróbować uprościć to co poniżej
@@ -40,4 +43,14 @@ public class ListaJednokierunkowa {
             prev.setNext(next);
         }
     }
+
+    public String get(int index) {
+        if((index+1) > size) throw new IndexOutOfBoundsException();
+        Node n = first;
+        for (int i=0; i<index; i++) {
+            n = n.getNext();
+        }
+        return n.getText();
+    }
+
 }

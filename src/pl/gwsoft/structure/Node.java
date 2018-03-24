@@ -1,7 +1,7 @@
 package pl.gwsoft.structure;
 
-public class Node {
-    private Node next;
+public class Node<T> {
+    private Node<T> next;
     private String text;
 
     public Node(String text) {
@@ -23,6 +23,10 @@ public class Node {
         } else {
             return text;
         }
+    }
+
+    public String getText() {
+        return text;
     }
 
     public Node getNext() {
