@@ -2,9 +2,9 @@ package pl.gwsoft.structure;
 
 public class Node<T> {
     private Node<T> next;
-    private String text;
+    private T text;
 
-    public Node(String text) {
+    public Node(T text) {
         this.text = text;
     }
 
@@ -21,11 +21,11 @@ public class Node<T> {
         if (next != null) {
             return text + ", " + String.valueOf(next);
         } else {
-            return text;
+            return String.valueOf(text);
         }
     }
 
-    public String getText() {
+    public T getText() {
         return text;
     }
 
