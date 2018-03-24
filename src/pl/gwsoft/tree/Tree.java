@@ -4,7 +4,11 @@ public class Tree {
     private Node root;
 
     void add(Integer value) {
-
+        if(root == null) {
+            root = new Node(value, null);
+        }else {
+            root.add(new Node(value, root));
+        }
     }
 
     @Override
@@ -12,7 +16,7 @@ public class Tree {
         StringBuilder sb = new StringBuilder();
         sb.append("Root");
         sb.append(root.getValue());
-        root.get
-        return b.toString();
+        //TODO get values from children
+        return sb.toString();
     }
 }
