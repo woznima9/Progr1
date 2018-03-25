@@ -8,11 +8,14 @@ public class TreeTest {
         tree.add(60);
         tree.add(5);
         tree.add(540);
-        tree.add(2);
-        tree.add(5);
-        tree.add(20);
-        tree.add(2);
-        tree.add(5);
-        System.out.println(tree);
+        tree.add(25);
+        tree.add(59);
+        tree.add(200);
+        tree.add(2000);
+        tree.add(572);
+
+
+        System.out.println(tree.search(500)); // false
+        System.out.println(tree.search(572)); // true
     }
 }

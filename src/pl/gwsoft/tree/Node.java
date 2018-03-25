@@ -1,18 +1,18 @@
 package pl.gwsoft.tree;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.stream.Collectors;
+import java.time.LocalDate;
 
 public class Node {
-    private Node parent;
+    //    private Node parent;
     private Node left;
     private Node right;
     private Integer value;
+//    private LocalDate localDate;
 
-    public Node(Integer value, Node parent) {
+    public Node(Integer value) {//, Node parent, LocalDate localDate) {
         this.value = value;
-        this.parent = parent;
+//        this.parent = parent;
+//        this.localDate = localDate;
     }
 
     public Integer getValue() {
@@ -24,7 +24,7 @@ public class Node {
         Node parent = null;
         while (actual != null) {
             parent = actual;
-            if(actual.value > node.getValue()) {
+            if (actual.value > node.getValue()) {
                 actual = actual.left;
             } else {
                 actual = actual.right;
@@ -33,10 +33,10 @@ public class Node {
 
         if (parent.value > node.getValue()) {
             parent.left = node;
-            parent.left.parent = parent;
+//            parent.left.parent = parent;
         } else {
             parent.right = node;
-            parent.right.parent = parent;
+//            parent.right.parent = parent;
         }
     }
 
@@ -44,5 +44,28 @@ public class Node {
     public String toString() {
 
         return String.valueOf(value);
+    }
+
+    public Node getLeft() {
+        return left;
+    }
+
+    public Node getRight() {
+        return right;
+    }
+
+    public boolean search(int value) {
+        Node actual = this;
+        while (actual != null && actual.value != value) {
+            if (actual.value > value) {
+                actual = actual.left;
+            } else {
+                actual = actual.right;
+            }
+        }
+        if (actual == null) {
+            return false;
+        }
+        return true;
     }
 }
