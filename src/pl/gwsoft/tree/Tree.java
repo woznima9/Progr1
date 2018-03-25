@@ -14,9 +14,10 @@ public class Tree {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Root");
+        sb.append("Root:\n");
         sb.append(root.getValue());
-        //TODO get values from children
+        sb.append("\n");
+        sb.append(root.toString());
         return sb.toString();
     }
 }

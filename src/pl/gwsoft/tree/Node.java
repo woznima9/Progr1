@@ -2,10 +2,12 @@ package pl.gwsoft.tree;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Node {
     private Node parent;
-    private List<Node> children;
+    private Node left;
+    private Node right;
     private Integer value;
 
     public Node(Integer value, Node parent) {
@@ -18,17 +20,29 @@ public class Node {
     }
 
     public void add(Node node) {
-        if(children == null) children = new LinkedList<>();
-        children.add(node);
-    }
+        Node actual = this;
+        Node parent = null;
+        while (actual != null) {
+            parent = actual;
+            if(actual.value > node.getValue()) {
+                actual = actual.left;
+            } else {
+                actual = actual.right;
+            }
+        }
 
-    public List<Node> getChildren() {
-        return children;
+        if (parent.value > node.getValue()) {
+            parent.left = node;
+            parent.left.parent = parent;
+        } else {
+            parent.right = node;
+            parent.right.parent = parent;
+        }
     }
 
     @Override
     public String toString() {
-//        String list = children.stream().map(x->x.toString()).collect(Collectors.joining(" , "));
+
         return String.valueOf(value);
     }
 }
