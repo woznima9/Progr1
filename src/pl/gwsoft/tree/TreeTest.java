@@ -3,7 +3,7 @@ package pl.gwsoft.tree;
 public class TreeTest {
     public static void main(String[] args) {
         Tree tree = new Tree();
-        tree.add(50);
+        tree.add(560);
         tree.add(20);
         tree.add(60);
         tree.add(5);
@@ -15,7 +15,7 @@ public class TreeTest {
         tree.add(572);
 
 
-        System.out.println(tree.search(500)); // false
+        System.out.println(tree.search(560)); // false
         System.out.println(tree.search(572)); // true
     }
 }

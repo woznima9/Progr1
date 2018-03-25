@@ -23,9 +23,9 @@ public class Tree {
         return sb.toString();
     }
 
-    public boolean search(int value) {
+    public boolean search(Integer value) {
         //ver1
-        if(root.getValue() == value) {
+        if(root.getValue().equals(value)) {
             return true;
         }else {
             return root.search(value);
