@@ -1,16 +1,31 @@
 package pl.gwsoft.tree;
 
-import java.time.LocalDate;
+import pl.gwsoft.structure.Stack;
 
 public class Tree {
     private Node root;
+    private Node lastElement;
 
-    void add(Integer value) {
+    void addBST(Integer value) {
         if(root == null) {
-            root = new Node(value);//, null, LocalDate.now());
+            root = new Node(value, null);
         }else {
-            root.add(new Node(value));//, root, LocalDate.now()));
+            lastElement = new Node(value, root);
+            root.add(lastElement);
         }
+    }
+
+    void addBin(Integer value) {
+        if(root == null) {
+            root = new Node(value, null);
+        }else {
+            lastElement = new Node(value, root);
+            root.addBin(lastElement);
+        }
+    }
+
+    private void swap(Node actual, Node parent) {
+        root.swap(actual, parent);
     }
 
     @Override
