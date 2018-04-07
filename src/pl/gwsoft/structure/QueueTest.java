@@ -16,9 +16,9 @@ public class QueueTest {
 
         //To samo przy użyciu ArrayDeque
         java.util.Queue<String> queue = new java.util.ArrayDeque<>();
-        queue.add("test 1");
-        queue.add("test 2");
-        queue.add("test 3");
+        queue.add("heap 1");
+        queue.add("heap 2");
+        queue.add("heap 3");
         System.out.println(queue);
         System.out.println(queue.poll());
         System.out.println(queue);
